@@ -1,0 +1,35 @@
+\documentclass{report}
+
+\input{../preamble.tex}
+
+\renewcommand{\contentsname}{Weeks}
+\renewcommand{\chaptername}{Week}
+
+\title{5.46 (NMR Spectroscopy and Organic Structure Determination) Notes}
+\author{Steven Labalme}
+
+\begin{document}
+
+
+
+
+\renewcommand{\thepage}{Cover}
+\maketitle
+
+
+
+\pagenumbering{roman}
+\tableofcontents
+\newpage
+
+
+
+\pagenumbering{arabic}
+\pagestyle{main}
+\renewcommand{\chaptermark}[1]{\markboth{\chaptername\ \thechapter\ (#1)}{}}
+\subfile{Week1/week1.tex}
+
+
+
+
+\end{document}
