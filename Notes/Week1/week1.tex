@@ -8,10 +8,116 @@
 
 
 
-\chapter{???}
-\section{???}
+\chapter{1D NMR Principles and Practices}
+\section{Underlying Principles of NMR}
 \begin{itemize}
-    \item \marginnote{1/4:}
+    \item \marginnote{1/4:}Philosophy: NMR is a complicated and useful set of tool for chemists.
+    \item Background on Walt.
+    \begin{itemize}
+        \item Training: Masters, PhD, Postdoc, and 5 jobs in NMR.
+        \item 20 years industry experience, 10 years academia experience, some small company experience.
+        \item Considers himself somewhere in the middle between knowing nothing and everything about NMR.
+        \item Experience in natural products discovery, drug discovery, biological NMR, etc.
+    \end{itemize}
+    \item Goal of the class: Distill what's most important for us to know.
+    \item Announcements.
+    \begin{itemize}
+        \item Syllabus now posted on Canvas!
+        \item Everything important will be posted on Canvas.
+        \item MestReNova is what we should use; TopSpin is what Walt is more comfortable with.
+        \item Slides posted to Canvas at the end of the day.
+    \end{itemize}
+    \item This week: The fundamentals.
+    \begin{itemize}
+        \item Chemical shift, coupling constants, correlations (new), NMR relaxation
+    \end{itemize}
+    \item The NMR periodic table.
+    \begin{itemize}
+        \item \ce{{}^1H} has almost 100\% spin $1/2$.
+        \item \ce{{}^12C} is 99\% abundant and has spin 0.
+        \begin{itemize}
+            \item Thus, we can only do NMR with \ce{{}^13C}.
+        \end{itemize}
+    \end{itemize}
+    \item The resonant frequency depends on an absolutely fundamental physical property called the \textbf{gyromagnetic ratio} ($\gamma$).
+    \begin{itemize}
+        \item Highest gyromagnetic ratio is tritium (\ce{{}^3H}), then fluorine, then a whole bunch, then phosphorus, carbon, nitrogen (with a bunch in between these three as well).
+    \end{itemize}
+    \item Higher magnetic field gives more signal.
+    \begin{itemize}
+        \item But 1/4 as much for \ce{{}^13C} as for \ce{{}^1H}, because $\gamma$ for \ce{{}^13C} is 1/4 what it is for \ce{{}^1H}.
+    \end{itemize}
+    \item The highest field NMR systems commercially available are at \SI{1.2}{\giga\hertz}.
+    \begin{itemize}
+        \item Walt will typically only go up to \SI{600}{\mega\hertz} in this class, corresponding to a \SI{14.1}{\tesla} magnet.
+    \end{itemize}
+    \pagebreak
+    \item Range of chemical shifts.
+    \begin{figure}[h!]
+        \centering
+        \begin{tikzpicture}[
+            xscale=2,
+            every node/.style=black
+        ]
+            \small
+            \draw (0,0) node[below=4.7mm]{\SI{0}{\mega\hertz}} -- (6,0) node[below=4.7mm]{\SI{600}{\mega\hertz}} -- (6.05,0);
+    
+            \footnotesize
+            \draw [rex,line width=0.0012cm] (6,0) node[below]{\ce{{}^1H}} -- ++(0,0.3);
+            \draw [rex,line width=0.096cm] (5.65,0) node[below]{\ce{{}^19F}} -- ++(0,0.3);
+            \draw [rex,line width=0.06cm] (2.43,0) node[below]{\ce{{}^31P}} -- ++(0,0.3);
+            \draw [rex,line width=0.024cm] (1.51,0) node[below]{\ce{{}^13C}} -- ++(0,0.3);
+        \end{tikzpicture}
+        \caption{Chemical shift ranges of common nuclei.}
+        \label{fig:shiftCommon}
+    \end{figure}
+    \begin{itemize}
+        \item The range of chemical signals we'll see is tiny, though; only about \SI{6000}{\hertz} if we're talking about a \SI{10}{\partspermillion} window.
+        \item Different nuclei appear in different windows and with different ranges (think of how carbon is 0-200 ppm vs. proton -5-15!!).
+        \item Note that the ranges in Figure \ref{fig:shiftCommon} are to scale relative to each other, but have been scaled up absolutely by 10 times.
+    \end{itemize}
+    \item All atoms' spins are active as soon as we magnetize the sample in the magnet bore. Differentiating between them is now an electronics problem.
+    \item $\alpha$- and $\beta$-D-glucose's anomeric protons have significantly different chemical shifts (\SI{4.6}{\partspermillion} vs. \SI{5.1}{\partspermillion}, roughly).
+    \item Oxygen is virtually all spin 0 \ce{{}^16O}, but protons will couple to each other and to \ce{{}^13C} (giving carbon satellites).
+    \begin{itemize}
+        \item 1\% of the time, the proton is coupled to \ce{{}^13C}, and gets massively split.
+        \item All couplings exist; it's just a question of whether we can see them!
+        \begin{itemize}
+            \item \SI{170}{\hertz} coupling for the 1-bond carbon-to-proton coupling.
+            \item 2-bond connection is then expected to be much smaller, maybe \SIrange{25}{30}{\hertz}.
+        \end{itemize}
+        \item Protons are present in much higher concentration, though, so we see their splitting much more (but it's also smaller because they're farther away!). This is why vicinal protons couple in \SIrange{4}{8}{\hertz} instead of \SI{200}{\hertz}.
+    \end{itemize}
+    \item Sergei: Why no coupling to the alcohol protons?
+    \begin{itemize}
+        \item Because the sample is in \ce{D2O}, we get exchange everywhere to \ce{OD}.
+        \item Since deuterium is spin 1, it should split the spin 1/2 nucleus into a triplet. But it also has 1/6 the gyromagnetic ratio. Additionally, fast exchange prevents any meaningful coupling from developing.
+        \item Dissolving the sample in (very dry) DMSO-d\textsubscript{6} will \emph{not} lead to proton exchange, and we \emph{can} observe the couplings to the hydroxyl protons!
+    \end{itemize}
+    \item Equations.
+    \begin{itemize}
+        \item 5/2 exponent for gyromagnetic ratio means it \emph{really} matters for sensitivity.
+    \end{itemize}
+    \item \SI{600}{\mega\hertz} denotes the resonance for protons at the set magnetic field.
+    \begin{itemize}
+        \item Carbon would be at \SI{150}{\mega\hertz} in this case (because 1/4 gyromagnetic ratio)!
+        \item \SIrange{140}{150}{\ampere} of current in the magnetic.
+    \end{itemize}
+    \item A \SI{4}{\hertz} coupling is on the order of parts per billion, so to discern it, we need parts per billion homogeneity in the magnetic field. This is why we need shimming.
+    \begin{itemize}
+        \item Shimming is done with additional coils that impart additional magnetism to parts of the sample.
+        \item Shimming is done for all of the few dozen coils every once in a while, and then with some of the coils for each particular sample.
+        \item To shim, you measure the deuterium lock signal and how broad or narrow/high the peak is and then you fiddle with the coils!
+        \item All you really have to look at is the height because the area is the same, so the height of the lock signal correlates to how good the shimming is.
+        \item Today, we do \textbf{radian shimming}, which tells us how to change the current in the coils to make the shimming better.
+        \item Shim coils can only be adjusted so far; if there's no sample below the coil, the shimming likely can't compensate enough to get a good spectrum.
+    \end{itemize}
+    \item Administrivia.
+    \begin{itemize}
+        \item There will be some kind of group project.
+        \item Final project is for us to use our skills to do something useful.
+        \item Write up our PSets independently, but we can work together on them.
+    \end{itemize}
 \end{itemize}
 
 
