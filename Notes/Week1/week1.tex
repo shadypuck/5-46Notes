@@ -122,5 +122,76 @@
 
 
 
+\section{Recording NMR Data}
+\begin{itemize}
+    \item \marginnote{2/6:}Deuterated solvents are used both to remove the proton background \emph{and} for lock.
+    \item If you run a sample automatically, everything we do in the next 20 minutes is gonna be automated.
+    \item Locking.
+    \begin{itemize}
+        \item If your sample doesn't lock in automation, the sample will fail.
+        \item If you've got 50:50 \ce{CDCl3} to \ce{MeOD}, the system may or may not lock on the chloroform signal, specifically.
+        \item The spectrometer is sweeping resonant frequencies across a relatively small range for deuterium.
+        \item $x$-axis is frequency, $y$-axis is intensity; perhaps an FID??
+        \item When lock is on, we're picking a deuterium frequency. If DMSO-d6 resonates at \SI{2.49}{\partspermillion}, we relate everything else back to that.
+    \end{itemize}
+    \item Shimming.
+    \begin{itemize}
+        \item We don't use $R_f$ pulses, but rather magnetic gradient pulses.
+        \item A constant gradient across the measured window will give a broad line because samples at one part will go at one frequency, and samples at another part will go at a different frequency.
+        \item Various currents for various gradients that you add together properly can be added together, like Fourier analysis! Creating a straight line as the sum of nonstraight lines!
+        \item There's error in the machine picking the deuterium sample exactly right.
+        \begin{itemize}
+            \item This is what makes the machine say \ce{CHCl3} is at \SIrange{7.19}{7.28}{\partspermillion}.
+            \item There's a difference between robustness and precision; the machine probably loses some precision for the sake of robustness.
+        \end{itemize}
+    \end{itemize}
+    \item Tuning.
+    \begin{itemize}
+        \item Looking at the response of the entire $R_f$ system.
+        \item Is that response maximum at the frequency at which I'm looking?
+        \item You need to tune the system to your sample, because otherwise, your sample's response will be much weaker.
+    \end{itemize}
+    \item Phasing.
+    \begin{itemize}
+        \item Maximizing the real and imaginary components.
+    \end{itemize}
+    \item The FID.
+    \begin{itemize}
+        \item The FID goes down due to a \textbf{relaxation effect} ($t_2$) that we'll discuss more later.
+        \item Exponential multiplication of \SI{0.5}{\hertz}, i.e., (reciprocal) \SI{2}{\second}.
+        \item Hertz/seconds conversions are good math to practice on.
+        \item Getting rid of the signal after 2 seconds gives less noise, but you lose signal intensity.
+        \item Losing \SI{0.5}{\hertz} couplings is fine if you're mainly looking for \SIrange{3}{5}{\hertz} couplings.
+        \item Zero-filling gives an increase in resolution, but it has limited advantages.
+        \item The further out you go in time, the more frequency discrimination you get. But lose S/N as well.
+    \end{itemize}
+    \item $t_2$ is the relaxation to equilibrium perpendicular to the magnetic field.
+    \item $t_1$ is the relaxation to equilibrium parallel to the magnetic field.
+    \begin{itemize}
+        \item This determines if spins actually get back to equilibrium after you do something with them (e.g., pulses).
+    \end{itemize}
+    \item Pulse length.
+    \begin{itemize}
+        \item \SI{5}{\micro\second} by default.
+        \item What if we lengthen it to \SI{500}{\micro\second}?
+        \begin{itemize}
+            \item Things get out of phase. Manual phasing allows you to see it, but you get a broad background.
+        \end{itemize}
+        \item At \SI{5}{\milli\second}, you don't get anything really interpretable, although the peaks are in roughly the same space.
+        \item $1/\SI{5}{\micro\second}$ is \SI{20}{\kilo\hertz}, which is parts per million on a \SI{600}{\mega\hertz} spectrum.
+    \end{itemize}
+    \item Project \#1.
+    \begin{itemize}
+        \item Task: Prepare a presentation for the class, and a report for the class.
+        \item Purpose: Share as much information about a range of useful nuclei as we can with each other.
+        \item We're not gonna touch the stuff in this class for a long time, so it will be good for our future selves to have resources.
+        \item List of references that people can go to is really important (online, published articles, etc.).
+        \item Stay within the allotted time no matter what.
+        \item Report and slides can be the same, but just make sure that all of your references go in the slides, too.
+    \end{itemize}
+\end{itemize}
+
+
+
 
 \end{document}
