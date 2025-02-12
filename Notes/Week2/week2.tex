@@ -1,0 +1,108 @@
+\documentclass[../notes.tex]{subfiles}
+
+\pagestyle{main}
+\renewcommand{\chaptermark}[1]{\markboth{\chaptername\ \thechapter\ (#1)}{}}
+
+\begin{document}
+
+
+
+
+\chapter{Project 1 Presentations}
+\section{Introduction to Proton, Carbon, Nitrogen, and Phosphorus}
+\begin{itemize}
+    \item \marginnote{1/11:}Our presentation.
+    \item \ce{{}^13C} NMR presentation (Angel, Nate).
+    \begin{itemize}
+        \item Broadband decoupled \ce{{}^13C} NMR gives no coupling with protons, so the number of peaks is the number of distinct carbons.
+        \item Low abundance of \ce{{}^13C} gives 100 times weaker signal than \ce{{}^1H}.
+        \item Gyromagnetic ratio $\gamma$ is 1/4 that of \ce{{}^1H}.
+        \begin{itemize}
+            \item The signal intensity is proportional to $\gamma^3$, so overall, proton signal is about 6400 times stronger than \ce{{}^13C}.
+        \end{itemize}
+        \item Solution: Increase sample concentration, longer relaxation delay (d1), higher field strength NMR (\SI{600}{\mega\hertz}), DEPT, 2D NMR.
+        \item Chemical shifts: \SIrange{0}{220}{\partspermillion}.
+        \begin{itemize}
+            \item Two regions: Above and below \SI{100}{\partspermillion}.
+            \item Aliphatic: \SIrange{0}{50}{\partspermillion}.
+            \item EWG-substituted aliphatic: \SIrange{50}{100}{\partspermillion}.
+            \item Aromatic: \SIrange{100}{150}{\partspermillion}.
+            \item Since carbon is more electronegative than hydrogen, adding carbon substituents shifts signals downfield.
+            \item Resonance structures and partial charges can help predict shifts.
+            \item Steric effects: Up to \SI{10}{\partspermillion} shifts from van der Waals interactions of atoms being near each other, especially in rigid molecules.
+        \end{itemize}
+        \item Impurities.
+        \begin{itemize}
+            \item \ce{CDCl3} has an equally heighted triplet at \SI{77}{\partspermillion} due to the spin 1 deuteron splitting the carbon peak into 3 peaks of equal height.
+        \end{itemize}
+        \item Functional groups (shifts and couplings).
+        \begin{itemize}
+            \item Alkenes: \SIrange{100}{150}{\partspermillion}.
+            \begin{itemize}
+                \item One-bond coupling of about \SI{150}{\hertz}.
+            \end{itemize}
+            \item Alkynes: \SIrange{70}{90}{\partspermillion}.
+            \begin{itemize}
+                \item Results from differences in electronic configuration around the carbon nuclei.
+                \item One-bond coupling to proton in acetylene of about \SI{249}{\hertz} ($sp$-hybridized carbons have huge couplings; shorter bonds!).
+                \item Two-bond coupling to other proton of about \SI{49}{\hertz}.
+            \end{itemize}
+            \item Aldehydes.
+            \item Halides.
+            \begin{itemize}
+                \item Big bulky electron density on iodine pushes shift for alkyl iodides to $-20$ to $-\SI{40}{\partspermillion}$.
+            \end{itemize}
+        \end{itemize}
+        \item Why isn't \ce{{}^13C} NMR quantitative?
+        \begin{itemize}
+            \item We'll talk about it, but it might have something to do with NOESY.
+            \item Polarization transfer can amplify signals \emph{and} decouple.
+            \item Turning off NOE, very long relaxation delay, and can make \ce{{}^13C} NMR quantitative!
+        \end{itemize}
+        \item For \ce{{}^1H}, we don't have an issue with chemical shift anisotropy. For almost any heteroatom (and carbon), we will have this issue. And it increases with the square of the field strength, so there's an ideal field strength range for carbon NMR whereas for proton, you can go as high as they make them.
+    \end{itemize}
+    \item \ce{{}^15N} and \ce{{}^31P} NMR (Natalie, Rosalind).
+    \begin{itemize}
+        \item For both nuclei: Typical chemical shifts, proton-heteroatom coupling constants, and what this can look like in biomolecular NMR.
+        \item \ce{{}^15N}.
+        \begin{itemize}
+            \item Spin 1/2.
+            \item 0.37\% abundant.
+            \item Low $\gamma$.
+            \item $>\SI{1000}{\partspermillion}$ range of chemical shifts.
+            \item Most groups fall within \SIrange{0}{500}{\partspermillion}. Metal nitrosyl (\ce{M-NO}) complexes are roughly \SIrange{300}{1200}{\partspermillion}, but this is helpful for identifying metal complexes (such as iron sulfur complexes, i.e., metalloproteins which store or transport \ce{NO})!
+            \item Proton-nitrogen couplings are difficult to detect. Magnitude affected by solvent used as well as intermolecular interactions (e.g., hydrogen bonding).
+            \item A variety of techniques be used to study biomolecules (e.g., at MIT in Mei Hong's lab). HSQC experiments, solid-state, isotopic labeling, and many more.
+            \item DNA is only made of four simple nitrogen-containing heterocycles, so looking at isolated nucleotides can be very helpful.
+            \item Shifts affected by post-translational modifications, DNA shape, protonation, etc.
+            \item \SIrange{100}{130}{\partspermillion} for backbone nitrogens in proteins, varies drastistically for side chains (\SIrange{30}{220}{\partspermillion}).
+            \item HSQC is a protein fingerprint, as well as the gateway into deuterium exchange experiments. Can be used to study the folding of proteins.
+        \end{itemize}
+        \item \ce{{}^31P}.
+        \begin{itemize}
+            \item Spin 1/2 and 100\% isotopic abundance. Thus, very easy to measure!
+            \item \SI{2000}{\partspermillion} shift range.
+            \begin{itemize}
+                \item Upfield defined by \ce{P4} at $-\SI{527}{\partspermillion}$.
+                \item Downfield defined by...
+            \end{itemize}
+            \item Proton-phosphorus $J$-coupling allows us to tell how far part phosphorus and hydrogen atoms are. Very useful tool!
+            \begin{itemize}
+                \item Great examples in the slides.
+            \end{itemize}
+            \item Chirality determination with a chiral phosphorus reagent and \ce{{}^31P} NMR.
+            \item \ce{{}^31P} NMR in DNA.
+            \begin{itemize}
+                \item Gives information about backbone conformation (e.g., A vs. B vs. Z).
+                \item Dickerson dodecamer backbone; researchers were able to correlate \ce{{}^31P} NMR shift with the percent of a certain conformation in the sample.
+            \end{itemize}
+            \item Cummins and Radosevich labs will have a lot to say on \ce{{}^31P}-\ce{{}^31P} couplings!
+        \end{itemize}
+        \item These nuclei are also not often studied at higher fields; you lose stuff even at \SI{600}{\mega\hertz}.
+    \end{itemize}
+\end{itemize}
+
+
+
+
+\end{document}
