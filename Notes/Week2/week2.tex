@@ -104,5 +104,191 @@
 
 
 
+\section{Miscellaneous Nuclei}
+\begin{itemize}
+    \item \marginnote{2/13:}Announcements.
+    \begin{itemize}
+        \item We don't have class next Tuesday; only next Thursday.
+    \end{itemize}
+    \item \ce{{}^19F} NMR (Yifan, Francesca).
+    \begin{itemize}
+        \item Quite similar to proton!
+        \begin{itemize}
+            \item Natural abundance: 100\%.
+            \item Nuclear spin of 1/2.
+            \item $\gamma_{\ce{F}}\approx\gamma_{\ce{H}}$.
+            \item Reliable integration.
+            \item Broad range of chemical shifts.
+            \item Standard reference: \ce{CFCl3}.
+        \end{itemize}
+        \item However, shielding is more paramagnetic; proton shielding is more diamagnetic.
+        \begin{itemize}
+            \item Consequence: OChem proton NMR intiution goes out the window.
+            \item It's harder to predict shift based on functional groups.
+            \item Magnetic anisotropy ring currents have less effect (overlapping aromatic and aliphatic regions).
+        \end{itemize}
+        \item Some tables of shielding and deshielding effects.
+        \item Steric deshielding.
+        \item Talking about isotope effects and satellites.
+        \item Not very sensitive to solvent effects, unlike proton where benzene-d6 has a big effect.
+        \item \ce{{}^19F}-\ce{{}^19F}, \ce{{}^19F}-\ce{{}^1H}, and \ce{{}^19F}-\ce{{}^13C} couplings are most common.
+        \begin{itemize}
+            \item Very similar to proton-proton couplings, because both nuclei have $I=1/2$.
+            \item Proton NMR may couple to both nuclei! Quartet of quartets possible from 3 protons and 3 fluorines nearby (in 1,1,1,-trifluoropropane).
+            \item Coupling constants decrease with more electronegative substituents nearby.
+            \item Karplus-type effects are still there: \emph{trans} vs. \emph{cis} coupling constants.
+            \item Geminal fluorine coupling constants increase with more electronegative groups.
+            \item Carbon couplings can be huge.
+            \item Long-range couplings are especially noticable with fluorine NMR.
+            \item Coupling can be transferred through quadrupolar interactions with benzene.
+        \end{itemize}
+        \item Applications of \ce{{}^19F} NMR.
+        \begin{itemize}
+            \item Reaction time courses, method optimization, and mechanistic investigation.
+            \item Deconstruction \ce{C-F} bonds is really big rn.
+            \item Fluorine is rather bioorthogonal, so you can put fluorine-substituted amino acids into proteins!
+            \item Chemical shift of fluorine is very sensitive to the local chemical environment, so it can be used to reconstruct how proteins fold!
+            \item Confirms the presence of weakly coordinating anions (e.g., BArF).
+            \item Swager does a lot of PFAS sensing, especially with porous polymers and \ce{{}^19F} NMR, which can be much more reliable than the EPA's current LCMS methods.
+        \end{itemize}
+        \item There is also a fluorine NMR background from teflon in almost all NMR probes.
+    \end{itemize}
+    \item Main group NMR nuclei (Sunny, Kwanwoo, Georgia).
+    \begin{itemize}
+        \item \ce{{}^11B} NMR.
+        \begin{itemize}
+            \item \ce{{}^11B} has a spin of $3/2$, 80\% abundance, higher $\gamma$, lower quadrupole moment.
+            \item Borosilicate glass within the NMR probe gives a hump from $-\SIrange{30}{30}{\partspermillion}$.
+            \begin{itemize}
+                \item Can do a number of things to reduce this.
+            \end{itemize}
+            \item Can reduce the issue of tubes with quartz NMR tubes.
+            \item Heizenberg uncertainty principle leads to more uncertainty and greater broadening. Strong quadrupolar moment also gives shorter relaxation time.
+            \item Chemical shift references.
+            \item It's most common to do proton decoupling.
+            \item B-F couplings are difficult to see; difference in electronegativity is cause??
+            \item zgbs pulse sequence helps decouple the probe's peaks.
+        \end{itemize}
+        \item \ce{{}^14N} NMR.
+        \begin{itemize}
+            \item Nuclear spin number 1, hence quadrupolar and fast relaxation (so broader peaks).
+            \item Low $\gamma$.
+            \item Much more abundant, but more difficult to work with.
+            \item You can monitor the progress of a relaxation, but you have to know where to expect things.
+            \item Can be helpful for identifying heterocyclic isomers.
+            \item Conclusion: It's not the best, but you can determine isomeric structures. Since it's so abundant, you don't have to label your molecule or have specific growth media.
+        \end{itemize}
+        \item \ce{{}^29Si} NMR.
+        \begin{itemize}
+            \item $I=1/2$, negative $\gamma$, 5\% abudance.
+            \item Really long relaxation time.
+            \item Does have some uses, though.
+            \item TMS is the reference standard for this.
+            \item Components of the probe and glass and other materials have silicon, so there's a large background peak around \SI{100}{\partspermillion}.
+            \begin{itemize}
+                \item You can computationally subtract the background, or do some other things.
+            \end{itemize}
+            \item Example from soil science.
+            \begin{itemize}
+                \item Dipolar decoupling and magic angle spinning in the solid state helped identify imogolite in different horizons of the soil.
+            \end{itemize}
+        \end{itemize}
+        \item \ce{{}^27Al} NMR.
+        \begin{itemize}
+            \item 100\% natural abundance.
+            \item $I=5/2$, quadrupolar (interacts with not only the external magnetic field, but lso the electric field gradient generated by its surrounding environment).
+            \item Highly sensitive.
+            \item Wide chemical shift range, and references.
+            \item $p$-character explains why more electronegative atoms lead to \emph{lower} chemical shifts.
+            \item You can monitor formation and degradation of a polyanion.
+            \item Solid-state aluminum NMR can study aluminum coordination in zeolites.
+        \end{itemize}
+        \item \ce{{}^77Se} NMR.
+        \begin{itemize}
+            \item $I=1/2$, 7.63\% abundance, relatively low $\gamma$.
+            \item Sunny has worked with this recently!
+            \item Very broad chemical shift range.
+            \item Selenium-proton coupling is a thing.
+            \item Clear oxidation state shift.
+            \item Selanocysteine can be used in biology.
+        \end{itemize}
+        \item \ce{{}^129Xe} and \ce{{}^131Xe} NMR.
+        \begin{itemize}
+            \item Huge chemical shift range.
+            \item You'll probably never use it, but it's cool.
+            \item Biological applications, but drawbacks in terms of practicality.
+        \end{itemize}
+    \end{itemize}
+    \pagebreak
+    \item More nuclei.
+    \begin{itemize}
+        \item \ce{{}^2H} NMR.
+        \begin{itemize}
+            \item You have to pump the system with an excessive amount of deuterium if you want to do it.
+            \item Low quadrupole moment, so poor resolution.
+            \item $I=1$.
+            \item Chemical shifts comparable for proton NMR, so you can use this side-by-side with proton NMR to really see what's going on in your reaction/molecule.
+            \item Good for deuterium labeling studies.
+            \item Example: Adamantanone homo-enolization.
+            \begin{itemize}
+                \item \emph{exo}- vs. \emph{endo}-hydrogen abstraction determined by comparing \ce{{}^1H} and \ce{{}^2H} NMR.
+                \item Shifting reagents make proton and deuterium have very similar chemical shift ranges.
+            \end{itemize}
+            \item Example: Chemical biology.
+            \begin{itemize}
+                \item Study of the lipid bilayer with deuterated lipids.
+                \item Used to study the order of the molecules.
+            \end{itemize}
+        \end{itemize}
+        \item \ce{{}^6Li} NMR.
+        \begin{itemize}
+            \item $I=1$, 8\% abundant.
+            \item Chemical shift range of about \SI{28}{\partspermillion}; some inorganic species have dramatically different shifts.
+            \item Coupling with proton, carbon, or nitrogen can be used.
+            \item Can be used to understand the behavior of organolithium species.
+            \begin{itemize}
+                \item Reveals monomeric and dimeric phenyl lithiates!
+                \item Isotopically labeling a nearby nitrogen reveals several possible dimer conformations.
+            \end{itemize}
+        \end{itemize}
+        \item \ce{{}^7Li} NMR.
+        \begin{itemize}
+            \item $I=3/2$, 92\% abundant.
+            \item Broad peaks and very little coupling.
+        \end{itemize}
+        \item \ce{{}^23Na} NMR.
+        \begin{itemize}
+            \item $I=3/2$, 100\% abundant.
+            \item \SI{110}{\partspermillion} range in solution; varies greatly in the solid state.
+            \item Implications in biology.
+            \item Sodium contamination is common in empty NMR tubes!
+            \item Application: Electrochemistry.
+            \begin{itemize}
+                \item Characterizing sodium ion battery degradation mechanisms.
+            \end{itemize}
+            \item Application: Frozen seawater and how large bodies of water freeze.
+            \begin{itemize}
+                \item Studied brine freezing.
+                \item \ce{NaCl_{(s)}} has a characteristic broad peak, becomes thin when dissolved in water, and gets messier when you go to lower temperatures.
+            \end{itemize}
+        \end{itemize}
+        \item \ce{{}^35Cl} NMR.
+        \begin{itemize}
+            \item $I=3/2$, 75.5\% abundant.
+            \item Resolution isn't as bad as deuterium labeling, but not great due to quadrupole moment.
+            \item Fairly big chemical shift range.
+            \item Solvents give broad peaks; inorganic/salt phase is better.
+            \item Application: Solid-state \ce{{}^35Cl} NMR for hydrochloride salt concentration determination of pharmaceuticals.
+            \begin{itemize}
+                \item Salt structure can be characterized.
+                \item Much better for solid-state dynamics than \ce{{}^13C} NMR.
+            \end{itemize}
+            \item Proton decoupling is important for chlorine NMR.
+        \end{itemize}
+    \end{itemize}
+\end{itemize}
+
+
+
 
 \end{document}
