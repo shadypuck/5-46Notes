@@ -4,10 +4,11 @@
 \usepackage{marginnote}
 \usepackage{enumitem}
 \usepackage{siunitx}
-\usepackage{tikz}
-\usepackage{float}
-\usepackage{amsmath,amssymb}
-\usepackage{mhchem}
+\usepackage{tikz,graphicx}
+\usepackage{float,subcaption}
+\usepackage{amsmath,amssymb,amsthm}
+\usepackage{bm}
+\usepackage{mhchem,chemfig}
 \usepackage[colorlinks,allcolors=black,urlcolor=cyan]{hyperref}
 \usepackage{subfiles}
 
@@ -37,3 +38,7 @@
 \DeclareSIUnit{\molar}{M}
 
 \colorlet{rex}{red!80!black!90!orange!80}
+
+\graphicspath{{../ExtFiles/}}
+
+\setchemfig{atom sep=2em,fixed length=true,bond offset=3pt,cram width=3pt}
