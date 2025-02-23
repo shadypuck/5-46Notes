@@ -1,0 +1,125 @@
+\documentclass[../notes.tex]{subfiles}
+
+\pagestyle{main}
+\renewcommand{\chaptermark}[1]{\markboth{\chaptername\ \thechapter\ (#1)}{}}
+\setcounter{chapter}{2}
+
+\begin{document}
+
+
+
+
+\chapter{Where NMR Spectra Come From}
+\section{The Basic NMR Experiment}
+\begin{itemize}
+    \item \marginnote{2/20:}Announcements.
+    \begin{itemize}
+        \item PSet 1 feedback should be back to us by the end of the weekend.
+        \item What Walt is really looking for is that we understand the material well enough to take it home with us and use it in the lab.
+    \end{itemize}
+    \item Today: The most complicated/boring part of the class.
+    \begin{itemize}
+        \item Going over the highlights of the basic NMR experiment. This is how we go from the sample in the spectrometer to generating an FID.
+        \item Many terms will be used that we may or may not know. If we don't know anything, ask Walt questions. These terms will be on the PSet!
+        \item After this, we'll get back to doing chemistry problems.
+    \end{itemize}
+    \item Most simple experiment: 1D acquisitions of a single nucleus.
+    \begin{itemize}
+        \item We rest for a while (where we're at equilibrium).
+        \item Radiofrequency pulse translated through probe/detector.
+        \item Get a signal that we can digitize.
+        \item We'll discuss some of the parameters we get to set and how they help us.
+    \end{itemize}
+    \item Two properties of a spectrum that we care about: \textbf{Sensitivity} and \textbf{resolution}.
+    \begin{itemize}
+        \item These are \emph{not} interchangeable.
+        \item \emph{Don't} say: "I'm not getting enough resolution. Do I need more sample in my tube?"
+    \end{itemize}
+    \item \textbf{Sensitivity}: The amount of signal we get over the noise background.
+    \begin{itemize}
+        \item I.e., how \emph{big} is the signal.
+        \item The amount of noise is determined by the hardware, particularly the NMR probe. We can't do anything about this.
+        \item The signals that we generate are on the order of \si{\micro\volt}. So to be able to see these, the noise has to be much lower than even that!
+        \item The total signal we have is proportional to the number of scans.
+        \begin{itemize}
+            \item We can't have a prime number of scans, for reasons we'll discuss later.
+            \item The amount of signal is proportional to the number of scans. The amount of noise is proportional to the square root of the number of scans (that's a statistical thing; the noise signals will not add up, while the signals will constructively interfere when we add them together).
+            \item Thus,
+            \begin{equation*}
+                \text{Signal-to-noise ratio} = \text{S/N} = \text{SNR} \propto \frac{n}{\sqrt{n}} = \sqrt{n}
+            \end{equation*}
+        \end{itemize}
+        \item Consider a \SI{2}{\milli\molar} sample in a \SI{5}{\milli\meter} tube with 8 scans. To double the SNR, either double the concentration to \SI{4}{\milli\molar} or quadruple the scans to 32.
+    \end{itemize}
+    \item \textbf{Resolution}: How close together we can observe different peaks. \emph{Given by}
+    \begin{equation*}
+        \text{Resolution} := 2\cdot\left( \frac{\text{SW}}{\text{NP}} \right)
+    \end{equation*}
+    \begin{itemize}
+        \item I.e., how \emph{sharp} is the signal (how close can the peaks be and we can still tell them apart).
+        \item Depends on two parameters: The number of points (NP) that we acquire for each spectrum, and the spectral width (SW) we wish to observe.
+        \item Now we have to get into the whole Fourier transform business.
+        \item With an analog oscilliscope, we could measure continuous data. We acquire digitally by taking various points. The time between points is called the \textbf{dwell}.
+        \begin{itemize}
+            \item Preview: In 2D NMR, we have a dwell in the \textbf{direct dimension} and \textbf{indirect dimension}.
+            \item Usually on the order of \si{\micro\second}.
+            \item The spectral width and dwell are related to each other: Larger spectral width requires acquiring more points per time.
+        \end{itemize}
+        \item Resolution: Intensity in frequency comes from intensity in time.
+        \item Walt gives a brief explanation of how the Fourier transform works.
+        \item In order to get decent resolution in the frequency axis, we need enough points in the time axis to differentiate.
+        \item With many fewer points, it's harder to identify complex behavior.
+        \begin{itemize}
+            \item Note: There is a way to view the individual points composing the NMR spectrum!
+        \end{itemize}
+        \item Long acquisition time and normal spectral width leads to more resolution.
+        \begin{itemize}
+            \item Total \textbf{acquisition time} is $\text{NP}\cdot\text{dwell}$.
+        \end{itemize}
+        \item Acquisition time, dwell, spectral width, and number of points are all related to each other. Changing one necessarily changes the others. If you fix spectral width and increase number of points, you will necessarily increase the acquisition time but also increase resolution??
+        \begin{itemize}
+            \item Smaller hertz per point means higher resolution.
+        \end{itemize}
+    \end{itemize}
+    \item NMR economics.
+    \begin{itemize}
+        \item When we do an NMR experiment, our advisors pay for the amount of time that our sample is in the system.
+        \item A 5 minute experiment costs \$1 on a \$12/hour machine.
+        \item If we have to buy more material, it's less expensive to just acquire longer. If we have material in a bucket somewhere, it's less expensive to just put more material in the tube (unless our time is worth something).
+        \item This matters more when we are doing 1D carbon of 1 mg of 800 MW sample (e.g., in a natural product lab). Then you have to put it on the 600 for 20 hours and hope you get something, only because the reviewers asked for it.
+    \end{itemize}
+    \item FID plots are in voltage vs. time.
+    \item \si{\partspermillion} vs. \si{\hertz}.
+    \begin{itemize}
+        \item Goes over the calculation.
+        \begin{itemize}
+            \item Example: \SI{1}{\partspermillion} at \SI{400}{\mega\hertz} is \SI{400}{\hertz}.
+        \end{itemize}
+        \item Hertz is the currency with which we think about pulses.
+    \end{itemize}
+    \item Radiofrequency (RF) pulses.
+    \begin{itemize}
+        \item Pulses at the resonance frequency of the nucleus in which we're interested.
+        \item So on a \SI{400}{\mega\hertz} spectrometer, we need a \SI{400}{\mega\hertz} pulse to affect protons and a \SI{100}{\mega\hertz} pulse to affect carbon.
+        \begin{itemize}
+            \item Nice thing: Since pulses are orthogonal, we can use a pulse sequence to make nuclei talk to each other!
+        \end{itemize}
+        \item RF pulses are defined by their \textbf{frequency}, \textbf{tip angle}, \textbf{power}, \textbf{RF bandwidth}, and \textbf{phase}.
+        \item When we apply a strong pulse, it excites a wide bandwidth. Weak pulses, on the contrary, excite a narrow bandwidth.
+        \item Relaxation and frequency are inversely proportional: When we pulse a system in the ultraviolet or visible, it relaxes in \si{\nano\second}, \si{\pico\second}, \si{\femto\second}. When we pulse a system with RF, it decays in the \si{\milli\second} to \si{\second} range.
+        \begin{itemize}
+            \item Thus, we have time to do a whole bunch of stuff that we can't do, unless we're in the Schlau-Cohen lab and have really fancy equipment.
+        \end{itemize}
+        \item You can do solvent suppression by dialing in a pulse of the certain power that you need.
+    \end{itemize}
+    \item \textbf{Tip angle}: The amount that the magnetization is moved away from the equilibrium position.
+    \item \textbf{Power}: The strength of the RF pulse. \emph{Units} \si{\watt}, \si{\deci\bel}.
+    \item \textbf{RF bandwidth}: The range of frequencies that the RF pulse can affect.
+    \item \textbf{Flip angle}: The angle between where a magnitized spin started, and where it ends.
+    \item Next topic: Extrapolation from 1D to 2D acquisition. This will lead into COSY, TOCSY, etc. spectra.
+\end{itemize}
+
+
+
+
+\end{document}
