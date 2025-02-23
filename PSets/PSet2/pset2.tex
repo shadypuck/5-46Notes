@@ -1,0 +1,26 @@
+\documentclass[../psets.tex]{subfiles}
+
+\pagestyle{main}
+\renewcommand{\leftmark}{Problem Set \thesection}
+\stepcounter{section}
+
+\begin{document}
+
+
+
+
+\section{Signal-To-Noise Ratio}
+\marginnote{2/25:}We often measure the sensitivity of a system using a standard sample and a standard experimental design; this allows us to compare one NMR system to another, or one probe to another in the same NMR system. It also allows us to estimate the result we can expect when we run a real sample (one that we care about).\par
+For this exercise we will use data collected for adenosine in d6-DMSO to compare some of the systems in the DCIF with respect to both proton and carbon acquisition. The method is as follows --- choose the largest adenosine signal in the spectrum (do not use the water or DMSO peaks) and use either MestReNova (the non-interactive approach is fine) or Topspin to measure SNR (the signal-to-noise ratio) using the software. For the proton spectrum one of the aromatic singlets will be largest; for the carbon spectrum, it will be one of the sugar carbons.
+\begin{enumerate}
+    \item For the \SI{20}{\milli\molar} adenosine data acquired at \SI{500}{\mega\hertz}, experiments 1 and 2 are proton acquisitions using 16 and 128 scans, respectively. Measure the SNR for each and confirm that the increase in SNR with scans matches what you expect.
+    \item Compare experiment 1 of the \SI{20}{\milli\molar} adenosine sample from the 500 with experiment 1 of the \SI{10}{\milli\molar} sample from the 500 (labeled \verb|5.46_2025_adenosine_10mM_500|), and again confirm that the difference in SNR is what you expect.
+    \item Now compare the SNR for the \SI{10}{\milli\molar} adenosine samples for both proton (experiment 1) and carbon (experiment 2) across all three NMR spectrometers (400, 500, and 600). For both proton and carbon, how many scans would you need at \SI{400}{\mega\hertz} and \SI{500}{\mega\hertz} to give you the same SNR as you see at \SI{600}{\mega\hertz}?
+    \item From the results in Q3, use the \href{https://chemistry.mit.edu/facilities-and-centers/department-of-chemistry-instrumentation-facility-dcif/}{DCIF fee schedule} to calculate the cost of achieving the same SNR for the AVIII 400, Neo500, and Neo600. Assume the proton spectra take \SI{6}{\minute} and the carbon spectra take \SI{72}{\minute}.
+    \item Finally, using the \SI{10}{\milli\molar} \SI{400}{\mega\hertz} proton and carbon spectra, measure the SNR with different line broadening (apodization) values --- \SI{0}{\hertz}, \SI{1}{\hertz}, \SI{5}{\hertz}, \SI{10}{\hertz}, and \SI{20}{\hertz}. Which line broadening gives the highest SNR for each nucleus? Why?
+\end{enumerate}
+
+
+
+
+\end{document}
