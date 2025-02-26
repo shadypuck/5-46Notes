@@ -1,0 +1,144 @@
+\documentclass[../notes.tex]{subfiles}
+
+\pagestyle{main}
+\renewcommand{\chaptermark}[1]{\markboth{\chaptername\ \thechapter\ (#1)}{}}
+\setcounter{chapter}{3}
+
+\begin{document}
+
+
+
+
+\chapter{2D NMR for Peak Assignments}
+\section{HSQC, HMBC, and COSY}
+\begin{itemize}
+    \item \marginnote{2/25:}Questions.
+    \begin{itemize}
+        \item Getting different answer consistently for PSet 2 SNR values between MNova methods?
+        \begin{itemize}
+            \item That's fine; just be consistent.
+        \end{itemize}
+        \item JEOL 502 and Bruker 600 training?
+        \begin{itemize}
+            \item The JEOL 502 can do simultaneous \ce{{}^1H}, \ce{{}^19F}, and \ce{{}^13C}, but no one uses it for that. It's just another autosampler machine with low queues.
+            \item The 600 also just has a low queue.
+        \end{itemize}
+        \item SampleJet caps?
+        \begin{itemize}
+            \item Walt will show me the product ID next time I'm in the DCIF.
+        \end{itemize}
+    \end{itemize}
+    \item Announcements.
+    \begin{itemize}
+        \item PSet 1 answers posted, but grades not.
+        \item A note on PSet 1: Coupling constants have to be the same when we increase the quantity of \ce{{}^13C}.
+        \item Also, $\beta$-anomer coupling constant is almost exactly the same. Why doesn't the $\beta$-anomer couple to the anomeric carbon, but the $\alpha$-anomer does?
+        \begin{itemize}
+            \item It's coupling to a carbon 3-bonds away at the correct dihedral angle!
+            \item Dihedral angle wouldn't affect a 2-bond coupling.
+        \end{itemize}
+    \end{itemize}
+    \item Today: Chemical shift assignment from scratch (adenosine).
+    \begin{itemize}
+        \item We'll also start talking about the utility of 2D acquisition.
+    \end{itemize}
+    \item Adenosine.
+    \begin{itemize}
+        \item Nucleotide base in DNA, component of ATP, and occasionally used in chemical transformations.
+        \item Nice test system because soluble in DMSO and then will stay the same for a while.
+        \item 2 aromatic protons, 3 aromatic carbons that are not protonated, 5 non-aromatic carbons and associated protons, 3 hydroxyls, and amino group.
+        \item Dissolving it in \ce{D2O} removes the exchangeable protons; dissolving in DMSO-d6 shows us all protons.
+        \item As DMSO picks up \ce{H2O}, it will begin to broaden peaks for exchangeable protons.
+    \end{itemize}
+    \item Assigning adenosine peaks (\ce{{}^1H} spectrum).
+    \begin{itemize}
+        \item Begin by integrating the spectrum.
+        \item 2 aromatic protons.
+        \item One 2H in the middle (that's probably aniline).
+        \item And 8 aliphatic protons (one of the 9 is hiding in the water signal).
+        \item Water in DMSO is 3.2-3.4 ppm depending on how many exchangeable protons there are in your solute.
+        \item Water in \ce{CHCl3} can be between 1-5 ppm, depending on acidic protons in solution.
+    \end{itemize}
+    \item Assigning adenosine peaks (\ce{{}^13C} spectrum).
+    \begin{itemize}
+        \item In general, you should start with the 1D carbon \emph{before} going to the 1D proton!
+        \begin{itemize}
+            \item Sensitivity is lower, but 1D chemical shift resolution is a big bonus!
+            \item 2 chemical shift overlaps in proton is an issue.
+            \item Carbon chemical shifts \emph{can} overlap, but they do so much less often.
+        \end{itemize}
+        \item There are 10 carbons in the molecule, and we clearly see 10 carbon peaks.
+        \item Walt has integrated the carbons here. Quantitative carbon can be done at MIT, but this is not that??
+        \item Aside: Proton decoupling.
+        \begin{itemize}
+            \item Before we apply the carbon pulse, we apply a moderately weak proton RF pulse that allows the proton-carbon NOE to build up. Thus, any proton will transfer its magnetization to the carbon. This enhances carbon signals by about threefold.
+        \end{itemize}
+        \item The two protonated carbons (because of NOE magnetization transfer) integrate a bit more.
+        \item For moderately accurate carbon integration, integrate close to the peak! It's not like proton where you can just integrate as far out as you want.
+        \item Aside: Quantitative carbon.
+        \begin{itemize}
+            \item Have a longer $t_1$ relaxation delay so that the spins can all get back to equilibrium before the next pulse.
+            \item Use a \ang{30} pulse instead of a \ang{90} pulse so that it takes less time to relax back to equilibrium.
+            \item Don't use the NOE because you want quantitation, not maximal signal.
+            \item Long aquisition time as well, so you can digitize the signal as best as possible.
+        \end{itemize}
+    \end{itemize}
+    \item \textbf{Heteronuclear single-bond quantum correlation}: An NMR experiment that shows you one-bond proton-carbon couplings in order to connect protons and carbons. \emph{Also known as} \textbf{HSQC}.
+    \item Assigning adenosine peaks (\ce{{}^1H}-\ce{{}^13C} HSQC).
+    \begin{itemize}
+        \item 2 aromatic signals (proton around 8, carbon around 140).
+        \item 6 aliphatic signals.
+        \begin{itemize}
+            \item 4 blue and 2 green.
+            \item This is a phase-sensitive and multiplicity-edited mode, allowing us to distinguish \ce{CH}'s, \ce{CH2}'s, and \ce{CH3}'s (analogous to DEPT experiments!).
+            \item DCIF has DEPT 90, 135, \emph{and} 45!
+        \end{itemize}
+        \item Signals at the top and bottom are mirrored about the center.
+        \begin{itemize}
+            \item Artifacts are pre-ordained by phase cycling, receiver gain, etc.
+            \item These are from the water in this case. The really strong signals can often be mirrored; this is because we didn't let the waters relax long enough between scans.
+        \end{itemize}
+        \item Gets us a labeling of the protons based on the carbon chemical shift.
+        \begin{itemize}
+            \item To reiterate, carbon chemical shift is much more determining than proton chemical shifts.
+        \end{itemize}
+    \end{itemize}
+    \item 1D vs. 2D experiments.
+    \begin{itemize}
+        \item 1D is relaxation delay ($d1$), pulse, and aquisition.
+        \item 2D/fancy can be relaxation delay, a bunch of pulses, and \emph{then} acquisition.
+        \begin{itemize}
+            \item $d1$'s are on the order of seconds.
+            \item Pulses are on the order of milliseconds.
+        \end{itemize}
+        \item Two Fourier transforms.
+    \end{itemize}
+    \item HMBC allows us to find 2- and 3-bond connections.
+    \begin{itemize}
+        \item Proton-carbon has \SIrange{120}{170}{\hertz} coupling for 2-bond, and \SIrange{3}{10}{\hertz} couplings for 3-bond.
+        \item HMBC essentially optimizes for a different range of coupling constants, and filters out 1-bond couplings.
+    \end{itemize}
+    \item \textbf{Homonuclear correlation spectroscopy}: A proton-proton 2D experiment. \emph{Also known as} \textbf{COSY}.
+    \begin{itemize}
+        \item A symmetric experiment that gives us the same cross-peaks on both sides of the diagonal.
+    \end{itemize}
+    \item Assigning adenosine peaks (\ce{{}^1H}-\ce{{}^1H} COSY).
+    \begin{itemize}
+        \item Connects nearby proton peaks.
+        \item The diagonal corresponds to correlation to between a proton and itself.
+        \item Off-diagonal elements give us what we want: 6-8, 8-9, 9-7, and 7-10.
+        \item 10 is the unique diastereotopic pair, so working backwards, we then get 7, 9, 8, and 6.
+        \item We can then assign the hydroxyl protons.
+        \item At this point, we've assigned the entire sugar but not the aromatic stuff.
+    \end{itemize}
+    \item COSY is easier to interpret, but is there a reason we couldn't just measure coupling constants in the 1D \ce{{}^1H} NMR?
+    \begin{itemize}
+        \item We could do that, but we are resolution-limited and there is much more overlap.
+    \end{itemize}
+    \item Next time: Assigning the aromatic stuff with HMBC, nitrogen 2D experiments to figure out which nitrogen is which.
+\end{itemize}
+
+
+
+
+\end{document}
