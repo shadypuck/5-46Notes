@@ -14,10 +14,112 @@
 For this exercise we will use data collected for adenosine in d6-DMSO to compare some of the systems in the DCIF with respect to both proton and carbon acquisition. The method is as follows --- choose the largest adenosine signal in the spectrum (do not use the water or DMSO peaks) and use either MestReNova (the non-interactive approach is fine) or Topspin to measure SNR (the signal-to-noise ratio) using the software. For the proton spectrum one of the aromatic singlets will be largest; for the carbon spectrum, it will be one of the sugar carbons.
 \begin{enumerate}
     \item For the \SI{20}{\milli\molar} adenosine data acquired at \SI{500}{\mega\hertz}, experiments 1 and 2 are proton acquisitions using 16 and 128 scans, respectively. Measure the SNR for each and confirm that the increase in SNR with scans matches what you expect.
+    \begin{proof}
+        For both experiments 1 and 2, I first applied Auto Phase Correction and Auto Baseline Correction, and referenced the central DMSO peak to \SI{2.50}{\partspermillion}. Then, I used MestReNova's Tools $>$ NMR Tools $>$ SNR Calculation Non-Interactive\dots{} with Noise Region \SIrange{8.70}{8.65}{\partspermillion} and Signal Region \SIrange{8.38}{8.31}{\partspermillion}. The results are as follows.
+        \begin{table}[H]
+            \centering
+            \small
+            \renewcommand{\arraystretch}{1.2}
+            \begin{tabular}{c|S}
+                \toprule
+                \textbf{Experiment} & \textbf{SNR}\\
+                \midrule
+                1 & 8388.99\\
+                2 & 25299.58\\
+                \bottomrule
+            \end{tabular}
+        \end{table}
+        Since experiment 2 has eight times as many scans, its SNR should be $\sqrt{8}$ times as high as experiment 1. In reality, $8388.99\cdot\sqrt{8}=23727.6$, so we have about 6\% error.
+    \end{proof}
     \item Compare experiment 1 of the \SI{20}{\milli\molar} adenosine sample from the 500 with experiment 1 of the \SI{10}{\milli\molar} sample from the 500 (labeled \verb|5.46_2025_adenosine_10mM_500|), and again confirm that the difference in SNR is what you expect.
+    \begin{proof}
+        Using the same settings as in Q1, the SNR is 3886.10. Halving the concentration should halve the sensitivity. In reality, $8388.99/2=4194.50$, so we have about 7\% error.
+    \end{proof}
     \item Now compare the SNR for the \SI{10}{\milli\molar} adenosine samples for both proton (experiment 1) and carbon (experiment 2) across all three NMR spectrometers (400, 500, and 600). For both proton and carbon, how many scans would you need at \SI{400}{\mega\hertz} and \SI{500}{\mega\hertz} to give you the same SNR as you see at \SI{600}{\mega\hertz}?
+    \begin{proof}
+        For each proton experiment, I used the settings described in my answer to Q1. For each carbon experiment, I used Noise Region \SIrange{72}{71}{\partspermillion} and Signal Region \SIrange{70.8}{70.5}{\partspermillion}.\footnote{This is after once again applying Auto Phase Correction, applying Auto Baseline Correction, and referencing the central DMSO peak to \SI{39.52}{\partspermillion}.} The results are as follows.
+        \begin{table}[H]
+            \centering
+            \small
+            \renewcommand{\arraystretch}{1.2}
+            \begin{tabular}{c|c|S}
+                \toprule
+                \textbf{Spectrometer} & \textbf{Experiment} & \textbf{SNR}\\
+                \midrule
+                \multirow{2}{*}{400} & 1 & 1536.43\\
+                                     & 2 & 28.86\\
+                \hline
+                \multirow{2}{*}{500} & 1 & 3886.10\\
+                                     & 2 & 43.00\\
+                \hline
+                \multirow{2}{*}{600} & 1 & 17821.86\\
+                                     & 2 & 54.98\\
+                \bottomrule
+            \end{tabular}
+        \end{table}
+        To achieve the same SNR on a \SI{400}{\mega\hertz} \ce{{}^1H} spectrum as on a \SI{600}{\mega\hertz} \ce{{}^1H} spectrum, you would need
+        \begin{equation*}
+            \left\lceil 16\cdot\left( \frac{17821.86}{1536.43} \right)^2 \right\rceil = \lceil 2153 \rceil = \fbox{4096\,\text{scans}}
+        \end{equation*}
+        To achieve the same SNR on a \SI{500}{\mega\hertz} \ce{{}^1H} spectrum as on a \SI{600}{\mega\hertz} \ce{{}^1H} spectrum, you would need
+        \begin{equation*}
+            \left\lceil 16\cdot\left( \frac{17821.86}{3886.10} \right)^2 \right\rceil = \lceil 337 \rceil = \fbox{512\,\text{scans}}
+        \end{equation*}
+        To achieve the same SNR on a \SI{400}{\mega\hertz} \ce{{}^13C} spectrum as on a \SI{600}{\mega\hertz} \ce{{}^13C} spectrum, you would need
+        \begin{equation*}
+            \left\lceil 4096\cdot\left( \frac{54.98}{28.86} \right)^2 \right\rceil = \lceil 14866 \rceil = \fbox{16384\,\text{scans}}
+        \end{equation*}
+        To achieve the same SNR on a \SI{500}{\mega\hertz} \ce{{}^13C} spectrum as on a \SI{600}{\mega\hertz} \ce{{}^13C} spectrum, you would need
+        \begin{equation*}
+            \left\lceil 4096\cdot\left( \frac{54.98}{43.00} \right)^2 \right\rceil = \lceil 6697 \rceil = \fbox{8192\,\text{scans}}
+        \end{equation*}
+    \end{proof}
     \item From the results in Q3, use the \href{https://chemistry.mit.edu/facilities-and-centers/department-of-chemistry-instrumentation-facility-dcif/}{DCIF fee schedule} to calculate the cost of achieving the same SNR for the AVIII 400, Neo500, and Neo600. Assume the proton spectra take \SI{6}{\minute} and the carbon spectra take \SI{72}{\minute}.
+    \begin{proof}
+        We will assume that multiplying the number of scans by $n$ makes the experiment take $n$ times as long and hence cost $n$ times as much. Let's begin.\par
+        Since Q3 tells us that it takes $4096/16=256$ times as many scans on the 400 to reach the SNR of a 600 proton experiment, the cost will be
+        \begin{equation*}
+            256\times\frac{\SI{6}{\minute}}{1}\times\frac{\SI{1}{\hour}}{\SI{60}{\minute}}\times\frac{\$28}{\SI{1}{\hour}} = \fbox{\$716.80}
+        \end{equation*}
+        Since Q3 tells us that it takes $512/16=32$ times as many scans on the 500 to reach the SNR of a 600 proton experiment, the cost will be
+        \begin{equation*}
+            32\times\frac{\SI{6}{\minute}}{1}\times\frac{\SI{1}{\hour}}{\SI{60}{\minute}}\times\frac{\$35}{\SI{1}{\hour}} = \fbox{\$112.00}
+        \end{equation*}
+        Assuming it only takes \SI{6}{\minute} to run a 600 proton experiment, the cost will be
+        \begin{equation*}
+            \SI{6}{\minute}\times\frac{\SI{1}{\hour}}{\SI{60}{\minute}}\times\frac{\$38}{\SI{1}{\hour}} = \fbox{\$3.80}
+        \end{equation*}
+        Running analogous calculations for \ce{{}^13C} gives \fbox{\$134.40, \$84.00, and \$45.60, respectively.}
+    \end{proof}
     \item Finally, using the \SI{10}{\milli\molar} \SI{400}{\mega\hertz} proton and carbon spectra, measure the SNR with different line broadening (apodization) values --- \SI{0}{\hertz}, \SI{1}{\hertz}, \SI{5}{\hertz}, \SI{10}{\hertz}, and \SI{20}{\hertz}. Which line broadening gives the highest SNR for each nucleus? Why?
+    \begin{proof}
+        For the proton and carbon experiments, I used the settings described in my answers to Q1 and Q3, respectively. The results are as follows.
+        \begin{table}[H]
+            \centering
+            \small
+            \renewcommand{\arraystretch}{1.2}
+            \begin{tabular}{c|S|S}
+                \toprule
+                \textbf{Experiment} & \textbf{Apodization (Hz)} & \textbf{SNR}\\
+                \midrule
+                \multirow{5}{*}{1} & 0  & 516.91\\
+                                   & 1  & 1783.98\\
+                                   & 5  & 1643.11\\
+                                   & 10 & 1058.36\\
+                                   & 20 & 486.38\\
+                \hline
+                \multirow{5}{*}{2} & 0  & 21.16\\
+                                   & 1  & 27.24\\
+                                   & 5  & 34.14\\
+                                   & 10 & 33.98\\
+                                   & 20 & 22.75\\
+                \bottomrule
+            \end{tabular}
+        \end{table}
+        \fbox{\SI{1}{\hertz} gives the highest SNR for \ce{{}^1H}, and \SI{5}{\hertz} gives the highest SNR for \ce{{}^13C}.}\par
+        % Carbon signals decay back to equilibrium faster than proton signals, so a more extreme weighting function works to cut out more noise.
+        Aquisition times for nuclei other than \ce{{}^1H} (e.g., \ce{{}^13C}) are typically cut short, so a more extreme window function helps to smooth out the FID before Fourier transforming it.
+    \end{proof}
 \end{enumerate}
 
 
