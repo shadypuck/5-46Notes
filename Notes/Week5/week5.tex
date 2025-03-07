@@ -1,0 +1,54 @@
+\documentclass[../notes.tex]{subfiles}
+
+\pagestyle{main}
+\renewcommand{\chaptermark}[1]{\markboth{\chaptername\ \thechapter\ (#1)}{}}
+\setcounter{chapter}{4}
+
+\begin{document}
+
+
+
+
+\chapter{Measuring Spin Effects}
+\section{NMR Relaxation}
+\begin{itemize}
+    \item \marginnote{3/4:}While we're acquiring our fid, neighboring protons' magnetic fields interact with each other.
+    \begin{itemize}
+        \item While we're RF pulsing, the instrument's magnetism is far stronger. But when we stop RF pulsing and collect, the protons can interact with each other.
+        \item We want to be at equilbrium in the $z$-axis every time we pulse the system.
+        \item Thus, relaxation time must be $\geq t_1$.
+        \begin{itemize}
+            \item If the acquisition time and relaxation delay do not add up to the right amount, the spins could be upside down when we pulse, and then the signals (positive and negative) will add to 0.
+        \end{itemize}
+    \end{itemize}
+    \item $t_1$ effect: Spin-lattice relaxation, which is in the direction of the magnetic field.
+    \item $t_2$ effect: Spin-spin relaxation, which is perpendicular to the direction of the magnetic field.
+    \begin{itemize}
+        \item It is $t_2$ relaxation causes the fid to decay away!
+        \item If our spins were coherent forever (if they stayed knocked over forever), we would get a constant signal (instead of a decayed one) when we turn the RF off.
+        \item $t_2$ value: The reciprocal of the FWHM (width of a peak at the middle) in hertz. Hence, shorter $t_2$'s mean broader lines.
+        \begin{itemize}
+            \item Acquisition time should be double the $t_2$.
+            \item Small molecules have $t_2$'s in the range of a quarter of a second to 1 second.
+            \item $t_2$'s much smaller for bigger molecules (e.g., polymers, proteins, etc.)
+        \end{itemize}
+    \end{itemize}
+    \item Analogous protons on different molecules are in slightly different magnetic environments due to variations in the neighboring protons' magnetism.
+    \item The longer the FID, the sharper the signal.
+    \item We more often use \ang{30} or \ang{45} pulses in \ce{{}^1H} NMR because it's much faster for the signal to recover to equilibrium.
+    \begin{itemize}
+        \item However, we do not get maximal signal in these cases.
+        \item By trigonometry, \ang{30} gives us 50\% of the maximum signal and \ang{45} gives us 71\% of the signal, which is a good compromise.
+        \item Note that since \ce{{}^13C} $t_1$'s are longer, we usually only go to \ang{30}.
+        \item Lengthening $d1$ (the relaxation delay) from a tenth of a second to 10 seconds causes almost no difference in sensitivity/resolution. For some protons, it does, though.
+    \end{itemize}
+    \item DMSO-d6 samples tend to relax relatively fast compared to \ce{CDCl3} or \ce{MeOD} samples.
+    \item Goes over spin echos as $t_2$-filtering techniques.
+    \item Using NMR to detect exchange broadening.
+    \item Good drug molecules have "compositional or chemical heterogeneity." I.e., they can be in multiple ionization states, labile protons, etc. This tends to increase the probability that it will go from the source all the way that it should.
+\end{itemize}
+
+
+
+
+\end{document}
