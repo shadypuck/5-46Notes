@@ -50,5 +50,91 @@
 
 
 
+\section{Band-Selective Experiments, TOCSY, IR, NOE, and ROE}
+\begin{itemize}
+    \item \marginnote{3/6:}Announcements.
+    \begin{itemize}
+        \item More time provided on PSet 3.
+        \begin{itemize}
+            \item Additional experiments also available in the Dropbox now!
+            \item There is a \ce{{}^1H}-\ce{{}^15N} HMBC, and a few band-specific HSQC/HMBC's.
+        \end{itemize}
+    \end{itemize}
+    \item 2D experiments.
+    \begin{itemize}
+        \item Almost always proton or fluorine on the horizontal, and carbon or nitrogen on the vertical. We pulse the proton/fluorine, and observe carbon/nitrogen correlations.
+        \item Highest frequency nucleus is the observed nucleus, always: Because that's where the majority of the signal is.
+        \item We modulate things in the \textbf{direct} (horizontal) dimension with things that we do in the \textbf{indirect} (vertical) dimension.
+        \item We put filters outside of the spectral width, so we don't see signal there. This helps stop noise from regions with no signal.
+        \begin{itemize}
+            \item Always make sure your proton spectral range encompases all signals you're looking for!
+            \item Any proton/carbon pairs that show up within the two limits will show up fine.
+            \item Any proton/carbon pairs with carbon outside the limits will show up folded back in the carbon dimension: SW stops at \SI{160}{\partspermillion} and peak at \SI{165}{\partspermillion} means reflection at \SI{155}{\partspermillion} or \SI{5}{\partspermillion}.
+            \item So you're balancing resolution (because wider SW means lower resolution) and the ability to interpret what you see.
+            \item If something appears in the indirect dimension but doesn't line up with any carbons, it's probably folded back in.
+        \end{itemize}
+        \item That being said, symmetric stuff around the bottom and top is just artifacts --- not folded in stuff.
+        \item What about two carbons very close together that we wanna tell the connections apart?
+        \begin{itemize}
+            \item PSet 3 carbons at 104.6 and 104.3, for instance. You can take a guess and line it up.
+            \item Or, you can really increase the resolution of the HMBC to make the cross-peak in the carbon dimension much sharper. You do this simply by making the SW very small. But how do you get rid of the folding? Do a \textbf{band-selective} HMBC.
+        \end{itemize}
+    \end{itemize}
+    \item \textbf{Band-selective} (HMBC): Instead of using regular, \textbf{hard} pulses with wide excitation bandwidths (e.g., -30 through 300), add in a selective pulse last. This only excites carbons in a \SI{10}{\partspermillion} bandwidth, so that it doesn't matter what's happened before because the only carbons that survive are $\pm 5$ around the center.
+    \begin{itemize}
+        \item How do we set up one of these on the DCIF instruments?
+        \item Walt did HSQC/HMBC pairs for both places with close-together carbons. These experiments don't take very long to do.
+        \item Can you do this in the proton dimension, too?
+    \end{itemize}
+    \item TOCSY (\SI{80}{\milli\second}) experiment.
+    \begin{itemize}
+        \item COSY shows nearest neighbors; TOCSY allows you to get to subsequent protons connected in a chain.
+        \item This shows not only not just vicinal proton couplings, but protons 2, 3, and even 4 carbons away.
+        \item This makes things more complicated, but can be helpful for confirmation.
+        \item Useful for connecting protons through overlapping peaks! If two carbons have the same chemical shift but differing neighbors, we can TOCSY the neighbors directly instead of having to go through the COSY.
+        \item When you make the mixing period less (\SI{20}{\milli\second} or \SI{10}{\milli\second}), you get fewer transfers of magnetization and see nearer neighbors only.
+    \end{itemize}
+    \item $t_1$ \textbf{inversion recovery} experiment.
+    \begin{itemize}
+        \item Making the time longer allows the signals to relax more.
+        \item The signal will go from completely inverted, along an exponential to regular.
+        \item Can estimate $t_1$ with a 1D, a certain relaxation delay, and then double the relaxation. Keep doubling until you see that you're getting most of your magnetization back.
+        \item Can do the same thing with a series of individual $t_2$ spin echo experiments: This is the \textbf{CPMG experiment}.
+    \end{itemize}
+    \item \textbf{Nuclear overhauser effect}: The interaction of individual spins directly with each other through space. \emph{Also known as} \textbf{NOE}.
+    \begin{itemize}
+        \item Maybe you already know what the assignments are, but you want to know something about the conformation of the molecule.
+        \item Standard question for adenosine: Is the nucleotide base oriented with the 5-membered ring pointing left, or the 6-membered ring.
+        \item Strength of the interaction is proportional to $r^{-6}$.
+        \item \SI{2}{\angstrom} distance is very strong NOE; \SI{4}{\angstrom} distance is imperceptible.
+        \begin{itemize}
+            \item Very strong measure of distance and conformation, but at a local level.
+        \end{itemize}
+        \item \textbf{Correlation time} $\tau_0$ nominally tells us about molecular motion in solution.
+        \begin{itemize}
+            \item Multiply by $\omega_0$, the frequency of the nucleus in the spectrometer (e.g., \SI{500}{\mega\hertz} for a proton on a 500).
+            \item Takeaway: If you're molecule is in the middle of this unfortuante regime, your NOE is going to be zero. You have to look out for that!
+            \item Positive NOE: Saturate one nucleus, transfer its magnetization to another nucleus, and then revert and the other one flips.
+            \item Example: Saturating adenosine's $1'$ proton correlates it to the $2'$ proton and base 5-membered ring's proton. The sample used was extremely concentrated.
+            \item When interpreting an NOE experiment, focus on the strong signals, not the weak; the weak ones are either incomplete subtraction or not our primary determination. Don't anticipate a bump 3-4 carbons away and then see a tiny one and say, "look, an NOE!"
+            \item Comparing NOEs on both diastereomers is a better idea than just interpreting one of them.
+        \end{itemize}
+    \end{itemize}
+    \item \textbf{ROE}: The NOE in a rotating frame.
+    \begin{itemize}
+        \item Difference: The ROE doesn't go to zero! Similar theoretical effect for small molecules, worse for very big, much better in the middle.
+        \item Now, magnetization transfer is the same sign as the peak that we've saturated.
+        \item This can give a rough sense of molecular size, just by looking at the sign of the NOE.
+        \item Distinguish monomer from polymer using NOEs!!
+    \end{itemize}
+    \item Final project: Think about something relevant to our research, and do experiments to characterize it.
+    \begin{itemize}
+        \item More on this next Tuesday.
+    \end{itemize}
+    \item 3 deliverables between now and the end of the course: PSet 4, final project, and review of the class.
+\end{itemize}
+
+
+
 
 \end{document}
