@@ -140,5 +140,66 @@
 
 
 
+\section{Heteroatom Correlation Experiments}
+\begin{itemize}
+    \item \marginnote{2/27:}Today: Finish the complete assignment of adenosine.
+    \item More on COSY.
+    \begin{itemize}
+        \item \textbf{$\bm{t_1}$ stripes}.
+        \item The spectrum can also be displayed in 3D, instead of as a contour/topological plot.
+    \end{itemize}
+    \item \textbf{$\bm{t_1}$ stripe}: A stripe in a COSY spectrum.
+    \begin{itemize}
+        \item These are the product of not waiting long enough between scans or between the increments in the indirect dimension.
+        \item They are just noise, and we have to go down to a point where the spectrum looks rational.
+    \end{itemize}
+    \item More on HSQC.
+    \begin{itemize}
+        \item Even if a mirror reflection lines up with a carbon peak, we have to be able to spot that it's not.
+        \item If we're still unsure, we can change the specral width or center of the spectrum. If the point moves with the spectrum, it's a reflection; if the point has the same apparent chemical shift, it's real.
+    \end{itemize}
+    \item Assigning the hydroxyl peaks.
+    \begin{itemize}
+        \item Three-bond \ce{{}^1H}-\ce{{}^1H} couplings will be slightly different magnitudes through \ce{C-C} vs. \ce{C-O} bonds.
+        \item COSY (in DMSO-d6) does the trick.
+        \item Spiking DMSO-d6 with a bit of \ce{D2O} and running two consecutive experiments (with and without spiking) can also be helpful.
+    \end{itemize}
+    \item A pitch for DMSO in NMR.
+    \begin{itemize}
+        \item We don't like to use it because it's hard to get rid of.
+        \item But if you use a gentle stream of dry nitrogen on your \SI{0.5}{\milli\liter} sample, it will get rid of the DMSO in about half a day!
+    \end{itemize}
+    \item \ce{{}^1H}-\ce{{}^13C} HMBC.
+    \begin{itemize}
+        \item Can't routinely detect signal up vs. signal down (as in DEPT), so all of the signals are just magnitude (blue).
+        \item Carbon 6 should be correlated to proton 8, proton 9, and the hydroxyl on 8.
+        \item HMBC's are very rich in information, but too rich to make an absolute assignment. That's why you need COSY, too!
+        \item What's up with the signals that don't line up with a proton?
+        \begin{itemize}
+            \item The center of the pair of signals line up with a proton; that's the breakthrough of the one-bond coupling.
+        \end{itemize}
+        \item Three-bond connections are bigger than two-bond connections in every case except 5-membered nitrogeneous heterocycles.
+        \item Account for the big signals first, and then go after the little ones if you want.
+    \end{itemize}
+    \item Don't try to do direct observe \ce{{}^15N} unless it's fully labeled; only do correlation spectroscopy.
+    \begin{itemize}
+        \item Only do direct observe if we're doing \ce{{}^14N} spectroscopy.
+    \end{itemize}
+    \item \ce{{}^1H}-\ce{{}^15N} HSQC.
+    \begin{itemize}
+        \item Only one peak, corresponding to the \ce{NH2} protons.
+        \item The nitrogen peak is measured indirectly, by projecting the nitrogen correlation over. This is as good as a direct result, though!
+        \item If a reviewer asks for a direct \ce{{}^15N} spectrum, argue with them!
+    \end{itemize}
+    \item \ce{{}^1H}-\ce{{}^15N} HMBC.
+    \begin{itemize}
+        \item One nitrogen sees one aromatic proton, and two sugar protons. This is the bridging nitrogen!
+    \end{itemize}
+    \item Walt pitches MestReNova's multiplet tool and automatic peak reporting.
+    \item Next week: NMR tools for stereochemical assignments, gradient tools, final project.
+\end{itemize}
+
+
+
 
 \end{document}
