@@ -1,0 +1,95 @@
+\documentclass[../notes.tex]{subfiles}
+
+\pagestyle{main}
+\renewcommand{\chaptermark}[1]{\markboth{\chaptername\ \thechapter\ (#1)}{}}
+\setcounter{chapter}{5}
+
+\begin{document}
+
+
+
+
+\chapter{Molecular Dynamics}
+\section{Chemical Exchange and DOSY}
+\begin{itemize}
+    \item \marginnote{3/11:}Lecture outline.
+    \begin{itemize}
+        \item Chemical exchange.
+        \item PFGs and DOSY.
+        \item PSet 4.
+        \item Final project.
+    \end{itemize}
+    \item PSet 4: ROESY and NOESY for Aflatoxin B1.
+    \begin{itemize}
+        \item Understand why there are three peaks in the ROESY.
+        \item What do they mean? Where do they come from? Should there be others?
+        \item This is a fairly simple, \SI{400}{\milli\second} ROESY.
+        \item NOESY does not look as nice.
+        \begin{itemize}
+            \item But looks better after phase and baseline spectrum.
+            \item You can also adjust the density/level of contours. This makes peaks more defined.
+        \end{itemize}
+    \end{itemize}
+    \item Make sure to properly phase and baseline 2D spectra, too!
+    \begin{itemize}
+        \item How do you do this??
+        \item There are equivalents in MNova.
+        \item Capture a place in the spectrum in Interactive Phase Correction, look at the columns.
+        \item Zero-order phase correction at the pivot, first-order phase correction at the sides.
+        \item \emph{Automatic} phase and baseline correction can be good, too.
+    \end{itemize}
+    \item Chemical exchange and NMR timescales in \emph{N},\emph{N}-dimethylacetamide (DMA).
+    \begin{itemize}
+        \item Methyls are in two different chemical environments at room temperature, but they merge into one peaks at higher temperatures. It's like a high-temperature equivalent of cyclohexane ring flipping at low temperatures!
+        \item Proton peaks get closer together and broader at higher temperatures, before coalescing. You have a point at which the exchange rate (rotation around the bond) is basically equal to the chemical shift difference (in hertz).
+        \item The difference between the two signals in hertz tells you the exchange rate!
+        \item Glenn Facey (NMR tech at University of Ottawa) has some really good examples in his blog.
+        \item Two broad peaks may be different compounds, or \textbf{rotamers}; the typical test is heating up!
+        \item Coalescence happens for carbon at a higher temperature than for protons! Sometimes, your signal just goes away/disappears into the background.
+    \end{itemize}
+    \item \textbf{Rotamer}: A molecule that has two forms differentiated by rotation about a chemical bond.
+    \item If the populations are equal, the final average will be equidistant between the two; if the populations are unequal, the final average will be weighted.
+    \item Examples of chemical exchange.
+    \begin{itemize}
+        \item Often tertiary amides (restricted bond rotation).
+        \item Ring flipping.
+        \item Tautomerization (e.g., $6\pi$ electrocyclization in cyclohepta-1,3,5-trienes).
+        \item Center inversion (i.e., nitrogens becoming chiral at low temperatures).
+        \item Rearrangement reactions.
+        \item \textbf{Fluxionality}.
+    \end{itemize}
+    \item Protonated tertiary nitrogens (with TFA vapor) may be useful for rotamers??
+    \item \textbf{Pulsed field gradient}: Allow for the precies introduction of a linear field gradient across the sample. \emph{Also known as} \textbf{PFG}.
+    \begin{itemize}
+        \item Using molecular tumbling to figure out how big molecules are.
+        \item Your proton gets super spread out, e.g., over \SI{200}{\partspermillion}.
+        \item Instead of a Fourier transform, you apply a \textbf{Laplace transform} (or \textbf{Bayesian processing}) to figure out diffusion time and correlate that to molecular weight.
+        \item To correlate diffusion coefficient to weight, you have to understand the viscosity of the solvent, temperature, fluid effects, etc.
+        \item May need to convert data from 2D to a 1D stack, rephase, and rebaseline.
+        \item You can make MNova do a Bayesian transform.
+        \item Mixes of multiple molecules will give you two different diffusion coefficients!
+        \begin{itemize}
+            \item This could help with identifying if my unknown sample in lab is multi-component or just one molecule!
+            \item I could also TLC/chromatograph the sample.
+        \end{itemize}
+    \end{itemize}
+    \item PSet 4 will be assigned today, and we'll have a week to do it.
+    \item The final project.
+    \begin{itemize}
+        \item Propose a particular chemical synthesis that we're interested in, ask what I'd like to see come out at the other end, and how could I use the NMR experiments in class to distinguish between products?
+    \end{itemize}
+    \item Chemical shift prediction (\ce{{}^13C}, \ce{{}^15N} can guide our thought, but it shouldn't determine our assignments).
+    \begin{itemize}
+        \item Aflotoxin's precisely-defined stereochemistry across the bridged ring will come in.
+    \end{itemize}
+    \item PSet 3.
+    \begin{itemize}
+        \item The carbons I couldn't identify are all exchange-broadened, in the \SIrange{150}{160}{\partspermillion}.
+        \item Should have HMBCs to nearby protons.
+    \end{itemize}
+\end{itemize}
+
+
+
+
+\end{document}
