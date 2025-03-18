@@ -43,8 +43,14 @@
 \DeclareSIUnit{\partspermillion}{ppm}
 \DeclareSIUnit{\molar}{M}
 
+\usetikzlibrary{decorations.pathmorphing}
+\tikzset{
+    wvbnd/.style={decorate,decoration={snake,amplitude=0.5mm,segment length=2.2mm}},
+    noesy/.style={blx,semithick,{Stealth[round,scale=1.1,inset'=0pt 0.55]}-{Stealth[round,scale=1.1,inset'=0pt 0.55]},shorten <=#1,shorten >=#1}
+}
 \colorlet{rex}{red!80!black!90!orange!80}
 \colorlet{grx}{green!50!black}
+\colorlet{blx}{blue!90!green!80}
 
 \graphicspath{{../ExtFiles/}}
 
