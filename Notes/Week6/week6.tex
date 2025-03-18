@@ -91,5 +91,112 @@
 
 
 
+\section{Suppressing Unwanted Signals}
+\begin{itemize}
+    \item \marginnote{3/13:}DOSY?
+    \begin{itemize}
+        \item Can be run in automation with Walt's approximate parameters on 500 and 600.
+        \item If I want to learn how to optimize the parameters for DOSY, ask Bridget (the DOSY expert) to schedule a training time. We'll optimize it on 501 (manual), and then I can run the optimized parameters on any automation system.
+        \item DOSY is not good at separating peaks "vertically," i.e., different compounds that have something with the same chemical shift. Though there are ways around this.
+        \item Yuzhe and Eddy also are pretty good at DOSY, per Yuzhe.
+    \end{itemize}
+    \item Lecture outline.
+    \begin{itemize}
+        \item Filtering experiments.
+        \item Composite experiments.
+    \end{itemize}
+    \item Everything that's been talked about in this class can be done in an automated fashion, as long as we know which parameters to dial in. Everythign that's been talked about can also be done manually, again as long as we know what to dial in.
+    \item More on DOSY.
+    \begin{figure}[h!]
+        \centering
+        \begin{subfigure}[b]{0.3\linewidth}
+            \centering
+            \includegraphics[width=0.8\linewidth]{DOSYa.JPG}
+            \caption{Species in mixture.}
+            \label{fig:DOSYa}
+        \end{subfigure}
+        \begin{subfigure}[b]{0.3\linewidth}
+            \centering
+            \includegraphics[width=0.8\linewidth]{DOSYb.JPG}
+            \caption{DOSY spectrum.}
+            \label{fig:DOSYb}
+        \end{subfigure}
+        \begin{subfigure}[b]{0.3\linewidth}
+            \centering
+            \includegraphics[width=0.8\linewidth]{DOSYc.JPG}
+            \caption{Gradient plot.}
+            \label{fig:DOSYc}
+        \end{subfigure}
+        \caption{DOSY with overlapping peaks.}
+        \label{fig:DOSY}
+    \end{figure}
+    \begin{itemize}
+        \item Imagine you have two different polymer species (100 repeat units, 200 repeat units; A-B end groups vs. C-B end groups).
+        \item All chemical shift is summed along the chemical shift axis (\ce{{}^1H} NMR spectrum of A-B plus C-B).
+        \item Signals for the middle stuff goes to a weighted average, B goes to weighted average, C is up top, and A is at bottom.
+        \item Can also anaylze the data as a plot of integrated intensity vs. gradient strength, which is also the way the experiment is actually done.
+        \begin{itemize}
+            \item Bigger molecule's intensity decays more rapidly at higher gradients.
+            \item For \ce{B}, one part maps with \ce{A} and one with \ce{C}, so you can do careful analysis and better estimate what the middle signals are telling you.
+            \item You need to do careful analysis in MNova and learn from Bridget.
+        \end{itemize}
+        \item To reiterate: There's a sense that DOSY is \emph{great} for MW measurement. But in reality, DOSY is just \emph{good} for \emph{estimating} molecular weight; really getting accuracy requires mass spec.
+    \end{itemize}
+    \item Spin echo.
+    \begin{itemize}
+        \item Very good for NMR filtering and separating signals from each other.
+        \item Let all the noise from the receiver pulse die away, then do a \ang{180} pulse and get your signal cleanly.
+        \item 1-2 Nobel prizes in the 1950s for developing this idea.
+    \end{itemize}
+    \item Filtering experiments: CPMG.
+    \begin{itemize}
+        \item Instead of just one spin echo, you can use two or more.
+        \item The 600's probe has a big carbon background, but using a double echo can filter out the broad part.
+        \item We can see the background in PSet 4, experiment 12.
+        \begin{itemize}
+            \item Related to 1012, and subtraction.
+            \item Double echo carbon and simple carbon.
+        \end{itemize}
+    \end{itemize}
+    \item Presaturation.
+    \begin{itemize}
+        \item Sometimes, you can saturate the water signal in \ce{MeOD}, because if exchange is fast enough, this will saturate the \ce{MeOH} protons, too, when exchanged.
+    \end{itemize}
+    \item Excitation sculpting.
+    \begin{itemize}
+        \item zgesgp on the NMR systems.
+        \item If it's really important to your advisor (e.g., Mo) to suppress the \ce{CDCl3} residual signal when you publish the spectrum, do something very gentle like this.
+    \end{itemize}
+    \item "Wet" experiment.
+    \begin{itemize}
+        \item Here, you can look at solutes in LC-NMR.
+        \item Pretty good at preserving the signals overlapped with the solvent peak.
+    \end{itemize}
+    \item VNC Viewer allows you to remote into the spectrometers.
+    \item HSQC correlates protons to carbons, but wouldn't it be great if we could attach that proton to other protons, too? This is the HSQC-TOCSY.
+    \begin{itemize}
+        \item This connects a carbon to its proton(s), and also some nearby protons.
+        \item This helps with proton chemical shift overlaps, which a real TOCSY can't help with much.
+        \item This vs. HMBC?
+        \begin{itemize}
+            \item Can give different peaks from HMBC.
+            \item In a perfect world, where all coupling constants are big enough to measure, they give the same data.
+            \item Doesn't run much faster than an HMBC.
+        \end{itemize}
+        \item You can also do HSQC-NOESY's, etc.
+        \item How do you run these in the DCIF??
+    \end{itemize}
+    \item HSQC, no decoupling.
+    \begin{itemize}
+        \item Everything is centered on the HSQC peaks and split by the ${}^1J_{\ce{CH}}$ coupling constant.
+    \end{itemize}
+    \item HSQC-DOSY.
+    \begin{itemize}
+        \item Overlapping proton chemical shift, but non-overlapping carbon chemical shift.
+    \end{itemize}
+\end{itemize}
+
+
+
 
 \end{document}
