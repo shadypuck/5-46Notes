@@ -8,6 +8,7 @@
 \usepackage{siunitx}
 \usepackage{tikz,graphicx}
 \usepackage{float,subcaption}
+\usepackage[style=chem-acs]{biblatex}
 \usepackage{amsmath,amssymb,amsthm}
 \usepackage{bm}
 \usepackage{mhchem,chemfig}
@@ -46,5 +47,8 @@
 \colorlet{grx}{green!50!black}
 
 \graphicspath{{../ExtFiles/}}
+
+\addbibresource{\subfix{../main.bib}}
+\DefineBibliographyStrings{english}{bibliography={References}}
 
 \setchemfig{atom sep=2em,fixed length=true,bond offset=3pt,cram width=3pt}
