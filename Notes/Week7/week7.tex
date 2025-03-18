@@ -1,0 +1,128 @@
+\documentclass[../notes.tex]{subfiles}
+
+\pagestyle{main}
+\renewcommand{\chaptermark}[1]{\markboth{\chaptername\ \thechapter\ (#1)}{}}
+\setcounter{chapter}{6}
+
+\begin{document}
+
+
+
+
+\chapter{Bridge to 5.55}
+\section{Solid-State NMR}
+\begin{itemize}
+    \item \marginnote{3/18:}Do NOESY's always take like 3h30?
+    \begin{itemize}
+        \item Depends on how much signal you want!
+        \item If you have very little compound, sure. But if you've got \SI{20}{\milli\gram} of a small molecule, you can get a NOESY in 20 minutes.
+        \item So perhaps even less time for my \SI{300}{\milli\gram} sample!
+        \item You can decrease the number of scans for the direct dimension from 32 down to 4, 2, or 1.
+        \begin{itemize}
+            \item Will get progressively messier, but if you have a ton of signal, it may not matter.
+        \end{itemize}
+        \item You can also get rid of the phase cycling.
+        \item You can also decrease the number of \textbf{increments} in the indirect dimension to balance time vs. resolution.
+        \begin{itemize}
+            \item Can cut down increments from 256 to 128 or something, too.
+        \end{itemize}
+    \end{itemize}
+    \item PSet 4: ROE/NOE similar?
+    \begin{itemize}
+        \item Yep! No worries.
+    \end{itemize}
+    \item PSet 4: No absolute stereochemistry without chiral resolving agent?
+    \begin{itemize}
+        \item Yep!
+        \item Just explain the relative stereochemistry.
+    \end{itemize}
+    \item PSet 4: Proton-carbon couplings to interpret?
+    \begin{itemize}
+        \item Hard to do because it's a very strained system, so things go in weird ways you might not expect.
+        \item Some explanation to that effect is good.
+    \end{itemize}
+    \item Do you have to run 1D experiments ahead of 2D?
+    \begin{itemize}
+        \item You never have to.
+        \item Sometimes, 1D experiments can capture things that 2D won't. For example, if you're taking a \ce{{}^1H}-\ce{{}^13C} HSQC, the 1D projection of the 2D dots will not encompass any \ce{X-H} bonds (e.g., exchangeable hydroxyl/amine protons). Thus, if you don't want to miss anything, it might make sense to take a 1D, too.
+        \item But it doesn't help with phasing or anything.
+    \end{itemize}
+    \item \ce{{}^19F}-\ce{{}^13C} HSQC didn't work?
+    \begin{itemize}
+        \item Check the chemical shift ranges, check the default parameters.
+        \item Let Walt know if I still can't make it work.
+    \end{itemize}
+    \item This week:
+    \begin{itemize}
+        \item Miscellaneous experiments, transitioning into the biological structural assignment course (5.55).
+        \item Solids.
+    \end{itemize}
+    \item Show and tell: A \SI{3.2}{\milli\meter} solid-state rotor.
+    \begin{itemize}
+        \item There's a couple of caps, too. These caps go into the rotor, and that's how we spin it.
+        \item The fins on the rotor accept a stream of nitrogen and get spun very smoothly.
+    \end{itemize}
+    \item Rotors help in solid-state NMR, because you've got to do \textbf{magic-angle spinning} at \ang{54.7}.
+    \begin{itemize}
+        \item This angle solves the equation
+        \begin{equation*}
+            3\cos^2\theta-1 = 0
+        \end{equation*}
+        \item This averages out \textbf{dipolar couplings}.
+        \item Smaller and smaller rotors can be spun faster and faster. When you get to spinning at \SI{32}{\kilo\hertz}, you can just take a normal proton spectrum as if you were in liquid. Requires a \SIrange{0.6}{0.7}{\milli\meter} rotor; trying to cap this is like trying to cap a grain of sand.
+        \item First ultra-small rotors were developed on Albany St. by Robert Guy Griffin!
+    \end{itemize}
+    \item \textbf{Dipolar coupling}: Two spins that are close enough together to interact.
+    \begin{itemize}
+        \item This is an effect that is significant in a solid in a way that it's not in a liquid. Tumbling and diffusion in the liquid phase naturally decouples dipolar interactions.
+    \end{itemize}
+    \item Solid-state NMR.
+    \begin{itemize}
+        \item Side-bands occur at the rotor frequency (like satellites).
+        \item Change the spinning speed by a few kilohertz and watch the side bands move to determine what's real and what's fake.
+        \item You take solid-state NMR because you've got a polymer or something you can't get to go into solution, and you have to get data on it somehow.
+        \item In the solid state, each molecule has a different orientation with respect to the magnetic field; there is significant \emph{anisotropy}.
+    \end{itemize}
+    \item Cross-polarization.
+    \begin{itemize}
+        \item Analogous to carbon-proton NOEs.
+        \item Transfers magnetization from a sensitive nucleus to an insensitive nucleus.
+        \item Occurs best when you hit the \textbf{Hartman-Hahn match}.
+        \item This means tht \ce{{}^13C} is much more useful than \ce{{}^1H} for solids.
+    \end{itemize}
+    \item \textbf{Hartman-Hahn match}: The ratio of the gyromagnetic ratios...
+    \item Solvent-swollen gels can be spun at lower speeds ($\approx\SI{5}{\kilo\hertz}$) to get spectra.
+    \item Another big thing in solid-state NMR is \textbf{dynamic nuclear polarization}.
+    \begin{itemize}
+        \item Can amplify signals by factors of 50-100 instead of the 2-3 you get with cross polarization.
+        \item Instead of transferring magnetization from one nuclear spin to another nuclear spin, you transfer it from an electron to a nuclear spin.
+    \end{itemize}
+    \item Switching gears to special topics in biological NMR.
+    \item Key things to keep in mind.
+    \begin{itemize}
+        \item Biopolymers are polymers, but they're \textbf{heteropolymers} made of a small number of building blocks.
+        \item The building blocks are known.
+        \item Higher-order structure is important; we care less about connectivity and more about this.
+    \end{itemize}
+    \item Proton chemical shifts and coupling patterns are often enough to make amino-acid assignments.
+    \begin{itemize}
+        \item Intra-residue COSY/TOCSY connectivities extend from the backbone \ce{NH} through the sidechain.
+        \item Sequential assignments require NOESY connectivities between adjacent amino acids.
+        \begin{itemize}
+            \item Be careful with folded structures! Nearest neighbor may not be next in sequence.
+        \end{itemize}
+    \end{itemize}
+    \item Larger proteins require uniform \ce{{}^13C} and \ce{{}^15N} labeling.
+    \begin{itemize}
+        \item 3D experiments (HNCO, HNCA, HNCOCA) trace the backbone, and CBCACO-type experiments extend from the backbone to the side-chain.
+    \end{itemize}
+    \item Amide protons need water in order to be seen.
+    \begin{itemize}
+        \item You often have to carefully modulate the pH.
+    \end{itemize}
+\end{itemize}
+
+
+
+
+\end{document}
